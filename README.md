@@ -1,37 +1,28 @@
 # Evaluating Reconfigurable Network Tradeoffs
 
-This repository contains the evaluation of different reconfigurable networks. 
+This repository contains the source codes needed to reproduce our evaluation of reconfigurable and static network topologies. 
 
 ## Getting Started
-#### Software Dependencies
-Simulation has the following dependencies that should be installed:
-1) Gurobi (https://www.gurobi.com/)
-Gurobi is needed to optimize the network topology based on predicted traffic matrix. 
+### Software Dependencies
+Our repository has the following dependencies that must be installed:
 
-2) Netbench (https://github.com/minyee/netbench)
-The original Netbench packet-level simulator can be found in (https://github.com/ndal-eth/netbench). TAGO/Netbench is built on top of the Netbench simulator, and it contains more developed modules to support the functionalities required by TAGO. Please follow the steps of setting up TAGO/Netbench, which will be required before proceeding to the next set of instructions. Note that the Gurobi Java module must be linked to the build file.
+#### 1. Gurobi (https://www.gurobi.com/)
+Installing Gurobi is necessary prior to running the evaluations in this repository. This is because several points in our analyses point to the Gurobi library when running traffic demand-based topology optimizations. 
 
-3) Python 2.7
-Python dependencies are: networkx, numpy, gurobipy, math, matplotlib
+#### 2. Netbench (https://github.com/minyee/netbench)
+The original Netbench packet-level simulator can be found in (https://github.com/ndal-eth/netbench). Our version of Netbench is built on top of the original Netbench simulator, but it also contains more developed modules to support the functionalities required for simulating reconfigurable networks. Please follow the steps in building Netbench. Note that the Gurobi Java module must be linked to the build file.
 
-#### Preliminary
-1) Install Gurobi
-2) Build Maven, which is needed to build Netbench.
-3) Build Netbench.
+#### 3. Python 2.7
+Python dependencies are: networkx, numpy, gurobipy, math, matplotlib.
 
-#### Run
-1) Please ensure that TAGO/Netbench is built succesfully before attempting to run the simulations here. 
-2) Before running the example simulation, set the environment variable `$NETBENCH_TAGO_DIRECTORY`.
-3) Next, we will run an example simulation based on Facebook's published Hadoop cluster traces from [1].
-4) Run `python routing_simulator.py`
+## Description of subdirectories.
+This is our artifact repository for evaluating both reconfigurable and static network topologies along three main metrics:
+
+#### 1. Scalability
+#### 2. Power Consumption
+#### 3. Network Throughput Performance
+
+We have similarly created 3 sub-directories: `performance_evaluation`, `power_consumption_analysis`, and `topology_analysis`, each of which are self-contained subdirectories to recreate the analyses on scalability, power consumption, and network throughput performance, respectively, in our paper. Each sub-directory contains its own README, which details how the analyses in the paper can be recreated.
 
 ### NOTE
-Please run the simulator from the root directory of this project. The imports are based on relative paths and running the simulator from other directories may fail.
-
-
-## Description
-This is our artifact repository for evaluating both reconfigurable and static network topologies along three main dimensions:
-1) Scalability
-2) Power Consumption
-3) Network Performance
-
+When running each analyses, please run from the root directory corresponding to each analysis, as we utilize relative path imports, and thus running the python scripts from different directories could cause unexpected errors. 
