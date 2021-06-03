@@ -83,7 +83,6 @@ def linear_regression_model_for_eps_power():
 	ax.set_ylabel(r"Power (W)", fontsize=xylabel_fontsize, labelpad=0.7)
 	ax.set_xlabel(r"EPS Radix", fontsize=xylabel_fontsize, labelpad=0.7)
 	plt.subplots_adjust(left=0.33, bottom=0.2, right=0.96, top=0.98, wspace=0.2, hspace=0.2)
-	plt.savefig("eps_power_model.pgf")
 	return 
 
 
@@ -180,12 +179,6 @@ def mesh_pod_designer(fattree_radix, target_total_servers, per_pod_pair_link_mul
 		total_power_consumed = eps_power_scaling * total_eps_switches * power_model(current_eps_radix) + total_ocs_required * OCS_POWER_MODELS[320] + transceiver_scaling * total_eps_switches * current_eps_radix * TRANSCEIVER_POWER_W
 		possible_designs.append((current_eps_radix, total_power_consumed))
 	return possible_designs[0]
-
-
-
-
-
-
 
 # Compare all topologies against a 3-layer fat tree at full size with switch radices being fattree_radix
 def small_medium_sized_analysis(fattree_radix):
@@ -302,5 +295,4 @@ if __name__ == "__main__":
 	axes[0].set_ylabel(r"Power consumption (MW)", fontsize=xylabel_fontsize, labelpad=0.7)
 	#axes[1].legend(['EXP', 'TRN-F', 'PRN-2L', 'FT'])
 	plt.subplots_adjust(left=0.2, bottom=0.27, right=0.98, top=0.93, wspace=0.67, hspace=0.2)
-	plt.savefig("power_consumption.pgf")
 	plt.show()
