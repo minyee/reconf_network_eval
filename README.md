@@ -35,5 +35,3 @@ This is our artifact repository for evaluating both reconfigurable and static ne
 2) Power Consumption
 3) Network Performance
 
-Each of the subdirectories in this repository corresponds 
-## References
